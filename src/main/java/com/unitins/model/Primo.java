@@ -16,7 +16,7 @@ public class Primo {
 	private Long id;
 	
 	@Column(nullable = false)
-	private String sequencia;
+	private Long sequencia;
 
 	public Long getId() {
 		return id;
@@ -26,17 +26,23 @@ public class Primo {
 		this.id = id;
 	}
 
-	public String getSequencia() {
+	public Long getSequencia() {
 		return sequencia;
 	}
 
-	public void setSequencia(String sequencia) {
+	public void setSequencia(Long sequencia) {
 		this.sequencia = sequencia;
 	}
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, sequencia);
+	}
+
+
+	@Override
+	public String toString() {
+		return "" + sequencia;
 	}
 
 	@Override

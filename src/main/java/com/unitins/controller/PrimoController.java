@@ -1,7 +1,5 @@
 package com.unitins.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +20,8 @@ public class PrimoController {
 	private PrimoRepository primoRepository;
 
 	@GetMapping
-	public List<Primo> listar() {
-		return primoRepository.findAll();
+	public String listar() {
+		return "Resposta: " + Math.PI + primoRepository.findAll().toString();
 	}
 	
 	@PostMapping
