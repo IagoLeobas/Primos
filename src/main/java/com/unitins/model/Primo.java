@@ -16,7 +16,7 @@ public class Primo {
 	private Long id;
 	
 	@Column(nullable = false)
-	private Long sequencia;
+	private String sequencia;
 
 	public Long getId() {
 		return id;
@@ -26,11 +26,11 @@ public class Primo {
 		this.id = id;
 	}
 
-	public Long getSequencia() {
+	public String getSequencia() {
 		return sequencia;
 	}
 
-	public void setSequencia(Long sequencia) {
+	public void setSequencia(String sequencia) {
 		this.sequencia = sequencia;
 	}
 
@@ -42,7 +42,7 @@ public class Primo {
 
 	@Override
 	public String toString() {
-		return "" + sequencia;
+		return sequencia;
 	}
 
 	@Override

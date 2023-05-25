@@ -4,7 +4,7 @@ public class Regras {
 
 	public static void main(String[] args) {
 
-		 String numero = "14159265358979323846";
+		 String numero = "14159265";
 	        verificarCaracteresPrimos(numero);
 	    }
 	    
@@ -13,7 +13,7 @@ public class Regras {
 	            char caractere = numero.charAt(i);
 	            
 	            if (verificarPrimo(caractere)) {
-	                System.out.print(caractere + " ");
+	                System.out.println(caractere + " ");
 	            }
 	        }
 	    }
