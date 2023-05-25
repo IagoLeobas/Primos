@@ -21,7 +21,7 @@ public class Database {
 	        ResultSet resultSet = statement.executeQuery(sql);
 
 	        if (resultSet.next()) {
-	            dado = resultSet.getString("id");
+	            dado = resultSet.getString("sequencia");
 	        }
 
 	    } catch (SQLException e) {
