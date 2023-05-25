@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Primo {
@@ -16,6 +17,8 @@ public class Primo {
 	private Long id;
 	
 	@Column(nullable = false)
+	@Size(min=0, max=200)
+	// no nosso sistema a sequência será de até 200 caracteres
 	private String sequencia;
 
 	public Long getId() {

@@ -27,7 +27,7 @@ public class PrimoController {
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<Primo> listarTodos() {
-		// imprime o nº informado a API e imprime a resposta console
+		// imprime o 1º nº informado a API e imprime a resposta console
 		Regras.imprimirResultado();
 		return primoRepository.findAll();
 	}

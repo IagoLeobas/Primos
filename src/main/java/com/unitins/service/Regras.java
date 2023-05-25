@@ -7,17 +7,18 @@ import com.unitins.dao.BancoDao;
 public class Regras {
 
 	public static String obterPrimos(String numero) {
-		String sequencia = "";
+		// sequencia final que será impressa no console
+		String sequenciaPrimos = "";
 
 		for (int i = 0; i < numero.length() - 3; i++) {
 			String substring = numero.substring(i, i + 4);
 			int num = Integer.parseInt(substring);
 
 			if (verificaPrimo(num)) {
-				sequencia += num;
+				sequenciaPrimos += num;
 			}
 		}
-		return sequencia;
+		return sequenciaPrimos;
 	}
 
 	public static boolean verificaPrimo(int numero) {

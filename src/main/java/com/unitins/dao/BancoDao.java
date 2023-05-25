@@ -17,6 +17,7 @@ public class BancoDao {
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				Statement statement = connection.createStatement()) {
 
+			// o 1º nº informado a API será retornado para ser trabalhado pela regra de negócio
 			String sql = "SELECT * FROM primo where id = '1'";
 			ResultSet resultSet = statement.executeQuery(sql);
 
