@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.unitins.db.Database;
 import com.unitins.model.Primo;
 import com.unitins.repository.PrimoRepository;
 
@@ -25,6 +26,8 @@ public class PrimoController {
 
 	@GetMapping
 	public List<Primo> listAll() {
+		String dadoDoBanco = Database.buscarDadoDoBanco();
+		System.out.print("Resultado: " + dadoDoBanco);
 		return primoRepository.findAll();
 	}
 	

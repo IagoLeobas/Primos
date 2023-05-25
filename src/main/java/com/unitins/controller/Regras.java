@@ -1,10 +1,13 @@
 package com.unitins.controller;
-
+import com.unitins.db.Database;
 public class Regras {
 
 	public static void main(String[] args) {
 
-		 String numero = "14159265";
+		String dadoDoBanco = Database.buscarDadoDoBanco();
+
+		
+		 /*String numero = "14159265";
 	        verificarCaracteresPrimos(numero);
 	    }
 	    
@@ -32,5 +35,6 @@ public class Regras {
 	        }
 	        
 	        return true;
-	    }
+	    }*/
+	}
 	}
