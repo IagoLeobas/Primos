@@ -2,35 +2,27 @@ package com.unitins.controller;
 
 public class Regras {
 
-	public static void main(String[] args) {
-
-		//String dadoDoBanco = Database.buscarDadoDoBanco();
-		//System.out.print("Resultado: " + dadoDoBanco);
-		//verificarCaracteresPrimos(dadoDoBanco);
-	}
-
-	public static String verificarCaracteresPrimos(String numero) {
+	public static String obterMaioresNumerosPrimos(String numero) {
 		String sequencia = "";
-		
-		for (int i = 0; i < numero.length(); i++) {
-			char caractere = numero.charAt(i);
 
-			if (verificarPrimo(caractere)) {
-				sequencia+= caractere ;
+		for (int i = 0; i < numero.length() - 3; i++) {
+			String substring = numero.substring(i, i + 4);
+			int candidato = Integer.parseInt(substring);
+
+			if (ehPrimo(candidato)) {
+				sequencia += candidato + " ";
 			}
 		}
 		return sequencia;
 	}
 
-	public static boolean verificarPrimo(char caractere) {
-		int valor = Character.getNumericValue(caractere);
-
-		if (valor <= 1) {
+	public static boolean ehPrimo(int numero) {
+		if (numero <= 1) {
 			return false;
 		}
 
-		for (int i = 2; i <= Math.sqrt(valor); i++) {
-			if (valor % i == 0) {
+		for (int i = 2; i <= Math.sqrt(numero); i++) {
+			if (numero % i == 0) {
 				return false;
 			}
 		}

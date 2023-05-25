@@ -25,26 +25,26 @@ public class PrimoController {
 	private PrimoRepository primoRepository;
 
 	@GetMapping
-	public List<Primo> listAll() {
+	public List<Primo> listarTodos() {
 		String dadoDoBanco = Database.buscarDadoDoBanco();
 		System.out.println("Número passado: " + dadoDoBanco);
-		System.out.println("Sequência obtida: " + Regras.verificarCaracteresPrimos(dadoDoBanco));
+		System.out.println("Sequência obtida: " + Regras.obterMaioresNumerosPrimos(dadoDoBanco));
 		return primoRepository.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public Primo getById(@PathVariable Long id) {
+	public Primo buscarPorId(@PathVariable Long id) {
 		return primoRepository.findById(id).get();
 	}
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Primo save(@RequestBody Primo primo) {
+	public Primo salvar(@RequestBody Primo primo) {
 		return primoRepository.save(primo);
 	}
 
 	@DeleteMapping("/{id}")
-	public String delete(@PathVariable Long id) {
+	public String deletar(@PathVariable Long id) {
 		primoRepository.deleteById(id);
 		return "Primo " + id + " deletado com sucesso!";
 	}
