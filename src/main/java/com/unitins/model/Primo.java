@@ -39,12 +39,6 @@ public class Primo {
 		return Objects.hash(id, sequencia);
 	}
 
-
-	@Override
-	public String toString() {
-		return sequencia;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

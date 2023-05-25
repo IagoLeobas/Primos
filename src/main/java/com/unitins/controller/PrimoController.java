@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.unitins.db.Database;
 import com.unitins.model.Primo;
+import com.unitins.service.Regras;
 import com.unitins.repository.PrimoRepository;
 
 @RestController
@@ -25,27 +25,31 @@ public class PrimoController {
 	private PrimoRepository primoRepository;
 
 	@GetMapping
+	@ResponseStatus(HttpStatus.OK)
 	public List<Primo> listarTodos() {
-		String dadoDoBanco = Database.buscarDadoDoBanco();
-		System.out.println("Número passado: " + dadoDoBanco);
-		System.out.println("Sequência obtida: " + Regras.obterMaioresNumerosPrimos(dadoDoBanco));
+		// imprime o nº informado a API e imprime a resposta console
+		Regras.imprimirResultado();
 		return primoRepository.findAll();
 	}
 
 	@GetMapping("/{id}")
+	@ResponseStatus(HttpStatus.OK)
 	public Primo buscarPorId(@PathVariable Long id) {
+		System.out.println("Número buscado com sucesso");
 		return primoRepository.findById(id).get();
 	}
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Primo salvar(@RequestBody Primo primo) {
+		System.out.println("Número adicionado com sucesso");
 		return primoRepository.save(primo);
 	}
 
 	@DeleteMapping("/{id}")
-	public String deletar(@PathVariable Long id) {
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deletar(@PathVariable Long id) {
 		primoRepository.deleteById(id);
-		return "Primo " + id + " deletado com sucesso!";
+		System.out.println("Primo " + id + " deletado com sucesso!");
 	}
 }
