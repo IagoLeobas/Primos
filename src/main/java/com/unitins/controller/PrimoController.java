@@ -20,28 +20,29 @@ import com.unitins.repository.PrimoRepository;
 @RestController
 @RequestMapping("/primos")
 public class PrimoController {
-	
+
 	@Autowired
 	private PrimoRepository primoRepository;
 
 	@GetMapping
 	public List<Primo> listAll() {
 		String dadoDoBanco = Database.buscarDadoDoBanco();
-		System.out.print("Resultado: " + dadoDoBanco);
+		System.out.println("Número passado: " + dadoDoBanco);
+		System.out.println("Sequência obtida: " + Regras.verificarCaracteresPrimos(dadoDoBanco));
 		return primoRepository.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Primo getById(@PathVariable Long id) {
 		return primoRepository.findById(id).get();
 	}
-	
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Primo save(@RequestBody Primo primo) {
 		return primoRepository.save(primo);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public String delete(@PathVariable Long id) {
 		primoRepository.deleteById(id);
